@@ -121,7 +121,50 @@
         </code></pre>
         <p class="mt-3 ml-6">This syntax can be used to declare a block scope local variable. See Variable scope below.</p>
       </section>
-      <section></section>
+      <section id="variable-scope" class="pt-2">
+        <header class="text-2xl pl-4">Variable scope</header>
+        <p class="mt-3 ml-6">Global variables are in fact properties of the global object. In web pages the global object is window, so you can set and access global variables using the window.variable syntax.</p>
+        <p class="mt-3 ml-6">Consequently, you can access global variables declared in one window or frame from another window or frame by specifying the window or frame name. For example, if a variable called phoneNumber is declared in a document, you can refer to this variable from an iframe as parent.phoneNumber.</p>
+      </section>
+
+      <section id="constants" class="pt-2">
+        <header class="text-2xl pl-4">Constants</header>
+        <p class="mt-3 ml-6">You can create a read-only, named constant with the const keyword. The syntax of a constant identifier is the same as for a variable identifier: it must start with a letter, underscore or dollar sign and can contain alphabetic, numeric, or underscore characters.</p>
+        <pre class="w-2/3 h-auto mt-3 ml-10 bg-gray-300 rounded-lg"><code class="p-2 m-2">
+      const PI = 3.14;
+            </code></pre>
+            <p class="mt-3 ml-6">A constant cannot change value through assignment or be re-declared while the script is running. It has to be initialized to a value.</p>
+            <p class="mt-3 ml-6">The scope rules for constants are the same as those for let block scope variables. If the const keyword is omitted, the identifier is assumed to represent a variable.</p>
+            <p class="mt-3 ml-6">You cannot declare a constant with the same name as a function or variable in the same scope. For example:</p>
+            <pre class="w-2/3 h-auto mt-3 ml-10 bg-gray-300 rounded-lg"><code class="p-2 m-2">
+    // THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS
+    WILL CAUSE AN ERROR ALSO function f() { const g = 5; var g;
+    //statements }
+                    </code></pre>  
+             <p class="mt-3 ml-6">However, object attributes are not protected, so the following statement is executed without problems.</p> 
+             <pre class="w-2/3 h-auto mt-3 ml-10 bg-gray-300 rounded-lg"><code class="p-2 m-2">
+    const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";
+                </code></pre> 
+      </section>
+      <section id="data-types" class="pt-2">
+        <header class="text-2xl pl-4">Data types</header>
+        <p>
+          The latest ECMAScript standard defines seven data types:
+          <ul class="p-2 list-disc list-inside pl-6">
+            <li>
+              Client-side JavaScript extends the core language by supplying
+              objects to control a browser and its Document Object Model (DOM).
+              For example, client-side extensions allow an application to place
+              elements on an HTML form and respond to user events such as mouse
+              clicks, form input, and page navigation.
+            </li>
+            <li class="pl-6 list-circle">
+              Boolean. true and false.
+            </li>
+          </ul>
+          
+        </p>
+      </section>
     </main>
   </body>
 </html>
